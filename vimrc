@@ -47,6 +47,20 @@ Plugin 'christarazi/Smart-Tabs'
 " Install SuperTab
 Plugin 'ervandew/supertab'
 
+" Install ControlP
+Plugin 'kien/ctrlp.vim'
+
+" Install obsession
+Plugin 'tpope/obsession'
+
+" Install vim-airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Airline customizations
+let g:airline#extensions#obsession#enabled = 1
+let g:airline#extensions#obsession#indicator_text = '$'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -66,17 +80,17 @@ filetype plugin indent on
 " Powerline installation
 let s:POWERLINE = system('which powerline')
 if !empty(s:POWERLINE) && !v:shell_error
-	if has('python3')
-		let s:python = 'python3'
-	else
-		let s:python = 'python'
-	endif
+    if has('python3')
+        let s:python = 'python3'
+    else
+        let s:python = 'python'
+    endif
 
-	exec(s:python . ' from powerline.vim import setup as powerline_setup')
-	exec(s:python . ' powerline_setup()')
-	exec(s:python . ' del powerline_setup')
+    exec(s:python . ' from powerline.vim import setup as powerline_setup')
+    exec(s:python . ' powerline_setup()')
+    exec(s:python . ' del powerline_setup')
 else
-	echoerr 'Powerline not installed.'
+    " echoerr 'Powerline not installed.'
 endif
 
 " Powerline specific settings
@@ -100,14 +114,20 @@ let mapleader = ','
 map <leader>c <c-_><c-_>
 
 set tabstop=4
-set softtabstop=4 noexpandtab
+set softtabstop=4 expandtab
 set shiftwidth=4
 set wildmenu
 set showmatch
 set incsearch
 set hlsearch
 set list
-colorscheme peachpuff
+
+""" colorscheme specific settings
+" src: https://superuser.com/a/562423
+set t_ut=
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-tomorrow-night
+""" End of colorscheme specific settings
 
 " allows cursor change in tmux mode
 " if exists('$TMUX')
@@ -166,7 +186,11 @@ map <space> za
 au BufWritePost .vimrc so ~/.vimrc
 
 " automatically trim extra whitespace before saving
-autocmd BufWritePre * %s/\s\+$//e
+" autocmd BufWritePre * %s/\s\+$//e
+
+" Mapping to save/remove session
+nnoremap <leader>S :Obsession<CR>
+nnoremap <leader>R :Obsession!<CR>
 
 " Add Vim runtime plugins
 runtime ftplugin/man.vim
