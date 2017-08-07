@@ -1,0 +1,13 @@
+"1.2pre-pm-3
+
+loadplugins '\.(js|penta)$'
+group user
+map -description='Map x to close tab' -modes=n,v x -ex :quit
+map -count -description='Map X to undo close tab' -modes=n,v X <count>u
+set cdpath=''
+set defsearch=duckduckgo
+set guioptions=bCrsT
+set hintkeys=sadfjklewcmpgh
+set scrolltime=20
+
+" vim: set ft=pentadactyl:
