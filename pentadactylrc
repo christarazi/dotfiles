@@ -16,6 +16,13 @@ nmap -builtin <C-d> -e :tabclose
 # D does nothing
 nmap -builtin D <nop>
 
+# Swap u to <C-u> to scroll up, <C-u> now undos a tab close
+nmap -builtin u <C-u>
+nmap -builtin <C-u> -e :u
+
+# U does nothing
+nmap -builtin U <nop>
+
 set cdpath=''
 set defsearch=duckduckgo
 set guioptions=bCrsT
