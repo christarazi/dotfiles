@@ -7,7 +7,7 @@ group user
 map -description='Map x to close tab' -modes=n,v x -ex :quit
 
 " Map X to undo a close tab
-map -count -description='Map X to undo close tab' -modes=n,v X <count>u
+map -count -description='Map X to undo close tab' -modes=n,v X -ex <count>:undo
 
 " Swap d to <C-d> to scroll down, <C-d> now closes current tab
 nmap -builtin d <C-d>
