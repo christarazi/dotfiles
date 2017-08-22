@@ -3,8 +3,8 @@
 loadplugins '\.(js|penta)$'
 group user
 
-" Map x to close tab
-map -description='Map x to close tab' -modes=n,v x -ex :quit
+" Map x to close tab then switch to previous tab
+map -description='Map x to close tab' -modes=n,v x :quit<CR><C-^>
 
 " Map X to undo a close tab
 map -count -description='Map X to undo close tab' -modes=n,v X -ex <count>:undo
