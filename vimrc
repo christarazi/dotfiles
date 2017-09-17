@@ -154,7 +154,6 @@ nnoremap j gj
 nnoremap k gk
 
 " Code folding
-autocmd FileType python setlocal foldenable foldmethod=indent
 set foldmethod=syntax
 set foldnestmax=1
 set foldlevel=1
@@ -162,11 +161,17 @@ set foldopen-=block  " Skip over folds when using { or }
 set nofoldenable
 map <space> za
 
-" automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
+augroup vimrc
+	autocmd!
 
-" automatically trim extra whitespace before saving
-autocmd BufWritePre * %s/\s\+$//e
+	" Python folding setting
+	autocmd FileType python setlocal foldenable foldmethod=indent
+
+	" Automatically reload vimrc when it's saved
+	au BufWritePost .vimrc so ~/.vimrc
+	" Automatically trim extra whitespace before saving
+	autocmd BufWritePre * %s/\s\+$//e
+augroup END
 
 " Add Vim runtime plugins
 runtime ftplugin/man.vim
