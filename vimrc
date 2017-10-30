@@ -25,6 +25,7 @@ set incsearch
 set hlsearch
 set list
 colorscheme peachpuff
+let g:airline_theme='term'
 
 " allows cursor change in tmux mode
 " if exists('$TMUX')
