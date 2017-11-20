@@ -18,7 +18,7 @@ set showcmd
 let mapleader = ','
 
 " Define leader key + c to command/uncomment using tComment
-map <leader>c <c-_><c-_>
+nmap <leader>c <c-_><c-_>
 
 set tabstop=4
 set softtabstop=4 expandtab
