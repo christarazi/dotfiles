@@ -91,5 +91,9 @@ augroup vimrc
 	autocmd BufWritePre * %s/\s\+$//e
 augroup END
 
+" Autoformat keybind, verbose mode on
+noremap <F3> :Autoformat<CR>
+let g:autoformat_verbosemode=1
+
 " Add Vim runtime plugins
 runtime ftplugin/man.vim
