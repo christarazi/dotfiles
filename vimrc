@@ -80,23 +80,24 @@ set nofoldenable
 map <space> za
 
 augroup vimrc
-	autocmd!
+    autocmd!
 
-	" Python folding setting
-	autocmd FileType python setlocal foldenable foldmethod=indent
+    " Python folding setting
+    autocmd FileType python setlocal foldenable foldmethod=indent
 
-" automatically trim extra whitespace before saving
-" autocmd BufWritePre * %s/\s\+$//e
-
-	" Automatically reload vimrc when it's saved
-	au BufWritePost .vimrc so ~/.vimrc
-	" Automatically trim extra whitespace before saving
-	autocmd BufWritePre * %s/\s\+$//e
+    " Automatically reload vimrc when it's saved
+    au BufWritePost .vimrc so ~/.vimrc
+    " Automatically trim extra whitespace before saving
+    autocmd BufWritePre * %s/\s\+$//e
 augroup END
 
 " Mapping to save/remove session
 nnoremap <leader>S :Obsession<CR>
 nnoremap <leader>R :Obsession!<CR>
+
+" Autoformat keybind, verbose mode on
+noremap <F3> :Autoformat<CR>
+let g:autoformat_verbosemode=1
 
 " Add Vim runtime plugins
 runtime ftplugin/man.vim

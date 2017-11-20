@@ -96,13 +96,11 @@ alias tmast="tmux attach-session -t"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# thefuck
-eval "$(thefuck --alias)"
-
 export EDITOR="/usr/sbin/vim"
 
 # Vi keybindings
 bindkey -v
+bindkey '^R' history-incremental-pattern-search-backward
 
 # start typing + [Up-Arrow] - fuzzy find history forward
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
