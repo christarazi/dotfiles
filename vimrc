@@ -1,7 +1,3 @@
-" Airline customizations
-let g:airline#extensions#obsession#enabled = 1
-let g:airline#extensions#obsession#indicator_text = '$'
-
 " To ignore plugin indent changes, instead use:
 filetype plugin indent on
 
@@ -18,23 +14,27 @@ set showcmd
 let mapleader = ','
 
 " Define leader key + c to command/uncomment using tComment
-nmap <leader>c <c-_><c-_>
+map <leader>c <c-_><c-_>
 
 set tabstop=4
-set softtabstop=4 expandtab
+set softtabstop=4 noexpandtab
 set shiftwidth=4
 set wildmenu
 set showmatch
 set incsearch
 set hlsearch
 set list
+colorscheme peachpuff
+let g:airline_theme='term'
 
-""" colorscheme specific settings
-" src: https://superuser.com/a/562423
-set t_ut=
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-tomorrow-night
-""" End of colorscheme specific settings
+" allows cursor change in tmux mode
+" if exists('$TMUX')
+"	let &t_SI = '\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\'
+"	let &t_EI = '\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\'
+" else
+"	let &t_SI = '\<Esc>]50;CursorShape=1\x7'
+"	let &t_EI = '\<Esc>]50;CursorShape=0\x7'
+" endif
 
 " Tab navigation like Firefox.
 nnorema <leader><tab>       :tabprevious<CR>
@@ -80,20 +80,16 @@ set nofoldenable
 map <space> za
 
 augroup vimrc
-    autocmd!
+	autocmd!
 
-    " Python folding setting
-    autocmd FileType python setlocal foldenable foldmethod=indent
+	" Python folding setting
+	autocmd FileType python setlocal foldenable foldmethod=indent
 
-    " Automatically reload vimrc when it's saved
-    au BufWritePost .vimrc so ~/.vimrc
-    " Automatically trim extra whitespace before saving
-    autocmd BufWritePre * %s/\s\+$//e
+	" Automatically reload vimrc when it's saved
+	au BufWritePost .vimrc so ~/.vimrc
+	" Automatically trim extra whitespace before saving
+	autocmd BufWritePre * %s/\s\+$//e
 augroup END
-
-" Mapping to save/remove session
-nnoremap <leader>S :Obsession<CR>
-nnoremap <leader>R :Obsession!<CR>
 
 " Autoformat keybind, verbose mode on
 noremap <F3> :Autoformat<CR>
