@@ -79,6 +79,14 @@ set foldopen-=block  " Skip over folds when using { or }
 set nofoldenable
 map <space> za
 
+function! StripTrailingWhitespace()
+	" Only strip whitespace on certain file types
+	if &ft ==? 'gitcommit'
+		return
+	endif
+	:%s/\s\+$//e
+endfunction
+
 augroup vimrc
 	autocmd!
 
@@ -87,8 +95,9 @@ augroup vimrc
 
 	" Automatically reload vimrc when it's saved
 	au BufWritePost .vimrc so ~/.vimrc
+
 	" Automatically trim extra whitespace before saving
-	autocmd BufWritePre * %s/\s\+$//e
+	autocmd BufWritePre * call StripTrailingWhitespace()
 augroup END
 
 " Autoformat keybind, verbose mode on
