@@ -17,7 +17,7 @@ let mapleader = ','
 map <leader>c <c-_><c-_>
 
 set tabstop=4
-set softtabstop=4 noexpandtab
+set softtabstop=4 expandtab
 set shiftwidth=4
 set wildmenu
 set showmatch
