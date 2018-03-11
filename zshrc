@@ -95,6 +95,13 @@ alias pbclear="cat /dev/null | xclip -selection clipboard"
 alias testmic="arecord -vv -f dat /dev/null"
 alias sudo="sudo "
 alias tmast="tmux attach-session -t"
+alias resetvpn="nmcli c down id wwus && nmcli c up id wwus"
+alias testvpn="curl ipinfo.io/ip && wget -O /dev/null http://ipv4.download.thinkbroadband.com:8080/50MB.zip"
+
+# https://github.com/drduh/YubiKey-Guide
+export GPG_TTY="$(tty)"
+export SSH_AGENT_PID=""
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
