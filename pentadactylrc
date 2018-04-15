@@ -9,16 +9,8 @@ map -description='Map x to close tab' -modes=n,v x :quit<CR><C-^>
 " Map X to undo a close tab
 map -count -description='Map X to undo close tab' -modes=n,v X -ex <count>:undo
 
-" Swap d to <C-d> to scroll down, <C-d> now closes current tab
-nmap -builtin d <C-d>
-nmap -builtin <C-d> -e :tabclose
-
 " D does nothing
 nmap -builtin D <nop>
-
-" Swap u to <C-u> to scroll up, <C-u> now undos a tab close
-nmap -builtin u <C-u>
-nmap -builtin <C-u> -e :u
 
 " U does nothing
 nmap -builtin U <nop>
