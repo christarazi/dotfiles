@@ -103,10 +103,10 @@ export GPG_TTY="$(tty)"
 export SSH_AGENT_PID=""
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/heroku/bin:$PATH"  # Added by the Heroku Toolbelt
+export PATH="$HOME/go/bin:$PATH"           # Golang
 
-export EDITOR="/usr/sbin/vim"
+export EDITOR="$(which vim)"
 
 # Vi keybindings
 bindkey -v
