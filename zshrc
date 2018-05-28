@@ -124,3 +124,17 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 	zle -N down-line-or-beginning-search
 	bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
+
+update-tmux-plugins() {
+    local prev="$(pwd)"
+    local root="$HOME/.tmux/plugins"
+
+    find "$root" -name '.git' -type d -print0 | while IFS= read -d '' -r dir
+    do
+        cd "$dir/.."
+        ggpull && echo "$dir \n"
+        cd "$root"
+    done
+
+    cd "$prev"
+}
