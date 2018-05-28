@@ -13,9 +13,6 @@ set showcmd
 " Define leader key to be comma
 let mapleader = ','
 
-" Define leader key + c to command/uncomment using tComment
-map <leader>c <c-_><c-_>
-
 set tabstop=4
 set softtabstop=4 expandtab
 set shiftwidth=4
@@ -37,20 +34,16 @@ let g:airline_theme='term'
 " endif
 
 " Tab navigation like Firefox.
-nnorema <leader><tab>       :tabprevious<CR>
-nnoremap <leader><tab>      :tabnext<CR>
-nnoremap <leader>t          :tabnew<CR>
-nnoremap <leader><Delete>   :tabclose<CR>
-inoremap <leader><S><tab>   <Esc>:tabprevious<CR>i
-inoremap <leader><tab>      <Esc>:tabnext<CR>i
-inoremap <leader>t          <Esc>:tabnew<CR>
+nnoremap <leader><tab> :tabprevious<CR>
+nnoremap <leader><tab> :tabnext<CR>
+nnoremap <leader>t     :tabnew<CR>
 
 " Map Ctrl-n to open NERD Tree
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Map save and quit shortcuts
-map <C-z> :write<CR>
-map <C-x> :quit<CR>
+nnoremap <C-z> :write<CR>
+nnoremap <C-x> :quit<CR>
 
 " Pressing <Enter> in normal mode will enter insert mode
 nnoremap <Enter> i
